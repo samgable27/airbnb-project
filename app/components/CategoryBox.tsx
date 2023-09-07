@@ -21,19 +21,23 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   const handleClick = useCallback(() => {
     let currentQuery = {};
 
+    // parse current params to object and not string
     if (params) {
       currentQuery = qs.parse(params.toString());
     }
 
+    // spread current query and add new category
     const updatedQuery: any = {
       ...currentQuery,
       category: label,
     };
 
+    // if new category is already selected, de-select
     if (params?.get("category") === label) {
       delete updatedQuery.category;
     }
 
+    // generate query string
     const url = qs.stringifyUrl(
       {
         url: "/",
@@ -43,10 +47,11 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     );
 
     router.push(url);
-  }, []);
+  }, [label, params, router]);
 
   return (
     <div
+      onClick={handleClick}
       className={`flex flex-col items-center justify-center gap-2 p-3 border-b-2 hover:text-neutral-800 transition cursor-pointer
     ${selected ? "border-b-neutral-800" : "border-transparent"}
     ${selected ? "text-neutral-800" : "text-neutral-500"}
