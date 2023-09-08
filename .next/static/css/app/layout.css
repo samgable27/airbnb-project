@@ -589,6 +589,9 @@ video {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
+.ml-1 {
+  margin-left: 0.25rem;
+}
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -606,6 +609,9 @@ video {
 }
 .hidden {
   display: none;
+}
+.h-\[35vh\] {
+  height: 35vh;
 }
 .h-full {
   height: 100%;
@@ -925,6 +931,13 @@ html,
 body,
 :root {
   height: 100%;
+}
+
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-pane,
+.leaflet-top {
+  z-index: 0 !important;
 }
 
 .hover\:border-black:hover {
