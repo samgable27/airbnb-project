@@ -6,6 +6,8 @@ interface IParams {
   listingId?: string;
 }
 
+export const dynamic = "force-dynamic";
+
 export async function POST(request: Request, { params }: { params: IParams }) {
   const currentUser = await getCurrentUser();
 
