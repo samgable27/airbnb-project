@@ -6,8 +6,6 @@ interface IParams {
   reservationId?: string;
 }
 
-export const dynamic = "force-dynamic";
-
 export async function DELETE(
   request: Request,
   { params }: { params: IParams }
